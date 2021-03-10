@@ -1,0 +1,96 @@
+@media screen {
+    html {
+        background: url("../img/SpeedBackground.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    body {
+        max-width: 600px;
+        margin: auto;
+        color: #c7dff5;
+    }
+
+    .heading {
+        display: inline-block;
+        margin: 40px 0px 30px 45px;
+    }
+
+    h1 {
+        font-family: "Berlin Sans FB", serif;
+        font-size: 65px;
+        color: #dda544;
+    }
+
+    main {
+        font-size: x-large;
+        font-family: Calibri;
+        text-align: center;
+    }
+
+    #selectTextLabel {
+        font-size: medium;
+    }
+
+    #selectText {
+        width: 125px;
+        height: 22px;
+    }
+
+    #textBox {
+        width: 100%;
+        height: 450px;
+        background-color: black;
+        border-radius: 14px;
+        border-width: 8px;
+        border-style: ridge;
+        border-color: #dda544;
+        padding: 10px;
+
+    }
+
+    #title {
+        font-style: italic;
+        text-align: center;
+    }
+
+    #textInformation {
+        font-style: italic;
+        text-align: center;
+    }
+
+    #textContent {
+        resize: none;
+        color: #c7dff5;
+        width: 95%;
+        height: 300px;
+        background-color: black;
+        padding: 5px;
+
+    }
+
+
+
+    #inputBox {
+        height: 25px;
+        width: 200px;
+        text-align: center;
+        background-color: black;
+        color: #c7dff5;
+
+    }
+
+
+
+
+    footer {
+        border-top: 2px dimgray;
+        font-size: medium;
+        text-align: center;
+    }
+
+
+
+}

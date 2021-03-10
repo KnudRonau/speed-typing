@@ -1,43 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Speed Typing</title>
-
-</head>
-
-<body>
-<header>
-    <p>
-        <img src = "img/Typewriter.png" height="100"
-             alt = "Typewriter image">
-    </p>
-    <h1>
-        Speed Typing
-    </h1>
-</header>
-<main>
-    <p>
-        <label>Choose a text
-            <select name = "text">
-                <option>Text 1</option>
-                <option>Text 2</option>
-                <option>Text 3</option>
-            </select>
-
-        </label>
-    </p>
+    <head>
+        <meta charset="UTF-8">
+        <title>Speed Typing</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
+    </head>
+
+    <body>
+        <header>
+            <p class = "heading">
+                <img src = "img/Typewriter.png" height="65" alt = "Typewriter image">
+            </p>
+            <h1 class = "heading">
+                Speed Typing
+            </h1>
+        </header>
+
+        <main>
+            <p id="selectTextArea">
+                <label id="selectTextLabel">Choose a text
+                    <select name = "text" id="selectText">
+                        <option>Text 1</option>
+                        <option>Text 2</option>
+                        <option>Text 3</option>
+                    </select>
+                </label>
+            </p>
+            <section id="textBox">
+
+                <p id="title">
+                    Title
+                </p>
+                <p id="textInformation">
+                    Information about the text
+                </p>
+                <textarea id="textContent">
+                    Duis at velit tortor. Vestibulum porttitor malesuada lorem quis tincidunt.
+                    Duis consequat tincidunt neque, quis mattis nulla consequat eget.
+                    Quisque efficitur, elit in lacinia volutpat, turpis urna bibendum erat,
+                    nec venenatis enim lectus vitae libero. Curabitur ac gravida est,
+                    eu ullamcorper massa. Proin commodo nulla eget purus pharetra,
+                    id tempor leo tincidunt. Donec facilisis maximus lorem dictum commodo
+                </textarea>
+
+            </section>
+
+            <p><label>
+                <input type="text" id="inputBox" placeholder="Type here..."/>
+            </label></p>
+            <p>
+                <img src = "img/StartButton.png" height="20" id="startStopBtn"
+                     alt = "start/stop image">
+            </p>
+
+            <dl id="StatisticArea">
+                <div>
+                    <dt>Gross WPM</dt>
+                    <dd id="grossWPM"> 55</dd>
+                </div>
+                <div>
+                    <dt>Accuracy</dt>
+                    <dd id="accuracy"> 55</dd>
+                </div>
+                <div>
+                    <dt>Net WPM</dt>
+                    <dd id="netWPM"> 55</dd>
+                </div>
+                <div>
+                    <dt>Errors</dt>
+                    <dd id="errors"> 55</dd>
+                </div>
 
 
-</main>
-<footer>
-    <p>
-        Copyright &copy; Knud Ronau Larse. No rights reserved <br>
-        <a href = "mailto:knla2000@student.miun.se"> Feel free to contact me!</a>
-    </p>
-</footer>
+            </dl>
 
-</body>
+        </main>
+
+        <footer>
+            <p>
+                Copyright &copy; Knud Ronau Larse. No rights reserved<br>
+                <a href = "mailto:knla2000@student.miun.se"> Feel free to contact me!</a>
+            </p>
+        </footer>
+
+    </body>
 </html>
