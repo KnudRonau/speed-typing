@@ -1,0 +1,5 @@
+# Add any directories, files, or patterns which should not be tracked by version control
+.idea/
+.vs/
+out/
+*.orig
