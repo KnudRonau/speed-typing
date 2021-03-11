@@ -19,32 +19,39 @@
         </header>
 
         <main>
+            <p class="choices" id="ignoreCasing">
+                <label>Ignore casing
+                    <input name="casing" type="checkbox" value="ignore">
+                </label>
+            </p>
+
+            <p class="choices" id="selectLanguage">
+                <label>Swedish
+                    <input name = "language" type="radio" value="swedish" checked>
+                </label>
+                <label>English
+                    <input name = "language" type="radio" value = "english">
+                </label>
+            </p>
+
             <p id="selectTextArea">
-                <label id="selectTextLabel">Choose a text
-                    <select name = "text" id="selectText">
+                <label id="selectTextLabel" class="selectText">Choose a text
+                    <select name = "text" id="selectText" class="selectText">
                         <option>Text 1</option>
                         <option>Text 2</option>
                         <option>Text 3</option>
                     </select>
                 </label>
             </p>
-            <section id="textBox">
 
+            <section id="textBox">
                 <p id="title">
                     Title
                 </p>
                 <p id="textInformation">
                     Information about the text
                 </p>
-                <textarea id="textContent">
-                    Duis at velit tortor. Vestibulum porttitor malesuada lorem quis tincidunt.
-                    Duis consequat tincidunt neque, quis mattis nulla consequat eget.
-                    Quisque efficitur, elit in lacinia volutpat, turpis urna bibendum erat,
-                    nec venenatis enim lectus vitae libero. Curabitur ac gravida est,
-                    eu ullamcorper massa. Proin commodo nulla eget purus pharetra,
-                    id tempor leo tincidunt. Donec facilisis maximus lorem dictum commodo
-                </textarea>
-
+                <textarea id="textContent"></textarea>
             </section>
 
             <p><label>
@@ -55,22 +62,22 @@
                      alt = "start/stop image">
             </p>
 
-            <dl id="StatisticArea">
+            <dl id="statisticArea">
                 <div>
-                    <dt>Gross WPM</dt>
-                    <dd id="grossWPM"> 55</dd>
+                    <dt class="stat">Gross WPM:</dt>
+                    <dd class="stat" id="grossWPM">55</dd>
                 </div>
                 <div>
-                    <dt>Accuracy</dt>
-                    <dd id="accuracy"> 55</dd>
+                    <dt class="stat">Accuracy:</dt>
+                    <dd class="stat" id="accuracy">55</dd>
                 </div>
                 <div>
-                    <dt>Net WPM</dt>
-                    <dd id="netWPM"> 55</dd>
+                    <dt class="stat">Net WPM:</dt>
+                    <dd class="stat" id="netWPM">55</dd>
                 </div>
                 <div>
-                    <dt>Errors</dt>
-                    <dd id="errors"> 55</dd>
+                    <dt class="stat">Errors:</dt>
+                    <dd class="stat" id="errors">55</dd>
                 </div>
 
 
@@ -79,6 +86,7 @@
         </main>
 
         <footer>
+
             <p>
                 Copyright &copy; Knud Ronau Larse. No rights reserved<br>
                 <a href = "mailto:knla2000@student.miun.se"> Feel free to contact me!</a>
