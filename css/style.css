@@ -10,7 +10,7 @@
     body {
         max-width: 600px;
         margin: auto;
-        color: #c7dff5;
+        color: #d4dee9;
     }
 
     .heading {
@@ -85,21 +85,31 @@
         font-style: italic;
         text-align: center;
         font-size: 16px;
+        color: #dda544;
     }
 
-    #textContent {
+    .textContent {
         resize: none;
-        color: #c7dff5;
+        color: #275383;
         width: 95%;
         height: 300px;
         background-color: black;
         padding: 5px;
-        outline: none;
         font-size: 22px;
-
+        text-align: left;
     }
 
+    #textContent .correct {
+        color: darkolivegreen;
+    }
 
+    .incorrect {
+        color: red;
+    }
+
+    .current {
+        background-color: #8f8f8f;
+    }
 
     #inputBox {
         height: 25px;
@@ -145,7 +155,6 @@
         padding: 0;
         margin: 0;
         text-align: left;
-
     }
 
     footer {
@@ -154,6 +163,9 @@
         font-size: medium;
         text-align: center;
     }
+
+
+
 
 
 
