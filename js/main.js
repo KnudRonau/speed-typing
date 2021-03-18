@@ -51,6 +51,11 @@ function changeLanguage(language) {
     choose(document.getElementById("selectText").value);
 }
 
+function playSound() {
+    let sound = new Audio("audio/failSound.mp3");
+    sound.play();
+}
+
 function dup1() {
     let text = document.getElementById("textContent").querySelectorAll("span");
     let index = window.sessionStorage.getItem("index");
@@ -67,8 +72,7 @@ function dup1() {
     if(textChar === inputChar) {
         text[index].classList.add("correct");
     } else {
-        let sound = new Audio("../audio/failSound.mp3")
-        sound.play()
+        playSound();
         if(textChar === " ") {
             text[index].classList.add("incorrectSpace");
         } else {
