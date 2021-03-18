@@ -97,6 +97,7 @@
         padding: 5px;
         font-size: 22px;
         text-align: left;
+        white-space: break-spaces;
     }
 
     #textContent .correct {
@@ -104,7 +105,13 @@
     }
 
     .incorrect {
-        color: red;
+        color: darkred;
+    }
+
+    .incorrectSpace {
+//        background-color: darkred;
+        text-decoration: underline;
+        color: darkred;
     }
 
     .current {
@@ -130,6 +137,14 @@
         background-color: #dda544;
 
     }
+
+    @font-face {
+        font-family: "roboto";
+        src: url("fonts/Roboto-regular.ttf");
+
+    }
+
+
 
     dl {
         width: 100%;

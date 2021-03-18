@@ -1,4 +1,3 @@
-let assistIndex = 0;
 
 //opens the XML file
 function loadDoc() {
@@ -19,16 +18,16 @@ function choose(i) {
 
 //loads title, info and text into place
 function loadText(i) {
-    var xml = loadDoc();
-    var titleTag = xml.getElementsByTagName("title");
-    var authorTag = xml.getElementsByTagName("author");
-    var textTag = xml.getElementsByTagName("text");
+    let xml = loadDoc();
+    let titleTag = xml.getElementsByTagName("title");
+    let authorTag = xml.getElementsByTagName("author");
+    let textTag = xml.getElementsByTagName("text");
 
-    var title = titleTag[i].childNodes[0].nodeValue;
-    var author = authorTag[i].childNodes[0].nodeValue;
-    var text = textTag[i].childNodes[0].nodeValue;
-    var words = text.split(" ").length;
-    var chars = text.length;
+    let title = titleTag[i].childNodes[0].nodeValue;
+    let author = authorTag[i].childNodes[0].nodeValue;
+    let text = textTag[i].childNodes[0].nodeValue;
+    let words = text.split(" ").length;
+    let chars = text.length;
 
     document.getElementById("textContent").innerHTML = text;
     document.getElementById("title").innerHTML = title;
@@ -43,6 +42,7 @@ function changeLanguage(language) {
     if(language === "english") {
         j = j + 4;
     }
+
     for(i; i < 4; i++, j++) {
         var titleTag = xml.getElementsByTagName("title");
         var title = titleTag[j].childNodes[0].nodeValue;
@@ -51,47 +51,24 @@ function changeLanguage(language) {
     choose(document.getElementById("selectText").value);
 }
 
-function dup() {
-    var text = document.getElementById("textContent").querySelectorAll("span");
-    var charVal = document.getElementById("inputBox").value.split("");
-    dup1();
-
-    text.forEach((charSpan, index) => {
-        index += assistIndex;
-        var char = charVal[index];
-        if (char == null) {
-            charSpan.classList.remove("correct");
-            charSpan.classList.remove("incorrect");
-
-        }
-        else if (char === charSpan.innerText) {
-            charSpan.classList.add("correct");
-            charSpan.classList.remove("incorrect");
-
-        }
-        else {
-            charSpan.classList.add("incorrect");
-            charSpan.classList.remove("correct");
-
-        }
-        if(charVal[index] === " ") {
-            assistIndex += index;
-            document.getElementById("inputBox").value = "";
-        }
-
-    })
-}
-
 function dup1() {
     let text = document.getElementById("textContent").querySelectorAll("span");
     let index = window.sessionStorage.getItem("index");
     let nextIndex = parseInt(index) + 1;
     let input = document.getElementById("inputBox").value.split("");
+    let errors = parseInt(window.sessionStorage.getItem("errors"));
 
     if(text[index].innerText === (input[input.length -1])) {
         text[index].classList.add("correct");
     } else {
-        text[index].classList.add("incorrect");
+        if(text[index].innerText === " ") {
+            text[index].classList.add("incorrectSpace");
+        } else {
+            text[index].classList.add("incorrect");
+        }
+
+
+        window.sessionStorage.setItem("errors", errors + 1);
     }
     text[index].classList.remove("current");
     if(input[input.length -1] === " ") {
@@ -121,12 +98,34 @@ function renderText() {
 
 }
 
+function statistics() {
+    let grossWPMElement = document.getElementById("grossWPM");
+    let accuracyElement = document.getElementById("accuracy");
+    let netWPMElement = document.getElementById("netWPM");
+    let errorsElement = document.getElementById("errors");
 
+    let errors = window.sessionStorage.getItem("errors");
+    let entries = window.sessionStorage.getItem("index");
+    let startTime = window.sessionStorage.getItem("startTime");
+
+    let accuracy = (1-parseInt(errors)/parseInt(entries))*100;
+    let d = new Date();
+    let currentTime = d.getTime();
+    let elapsedTime = (currentTime - startTime)/(60 * 1000);
+    let grossWPM = (entries / 5) / elapsedTime;
+    let netWPM = grossWPM - (errors/elapsedTime);
+
+    grossWPMElement.innerHTML = Math.round(grossWPM);
+    accuracyElement.innerHTML = Math.round(accuracy);
+    netWPMElement.innerHTML = Math.round(netWPM);
+    errorsElement.innerHTML = errors;
+
+}
 
 function speedTyping() {
-    var img = document.getElementById("startStopBtn");
-    var inputBox = document.getElementById("inputBox");
-    var selectText = document.getElementById("selectText");
+    let img = document.getElementById("startStopBtn");
+    let inputBox = document.getElementById("inputBox");
+    let selectText = document.getElementById("selectText");
 
     if(img.getAttribute("src") === "img/StartButton.png") {
         choose(selectText.value);
@@ -135,19 +134,24 @@ function speedTyping() {
 
         let d1 = new Date();
         let startTime = d1.getTime();
-        window.sessionStorage.setItem("startTime", startTime);
+        let timer = setInterval(statistics, 1000);
 
+        window.sessionStorage.setItem("timer", timer);
+        window.sessionStorage.setItem("startTime", startTime);
         window.sessionStorage.setItem("index", 0);
+        window.sessionStorage.setItem("errors", 0);
 
         img.setAttribute("src", "img/StopButton.png");
         inputBox.focus();
 
     }
     else if(img.getAttribute("src") === "img/StopButton.png") {
-        let d2 = new Date();
-        let endTime = d2.getTime();
-        let startTime = window.sessionStorage.getItem("startTime");
-        console.log(endTime - startTime);
+//        let d2 = new Date();
+//        let endTime = d2.getTime();
+//        let startTime = window.sessionStorage.getItem("startTime");
+        let timer = window.sessionStorage.getItem("timer");
+        clearInterval(timer);
+//        console.log(endTime - startTime);
 
         img.setAttribute("src", "img/StartButton.png");
     }
@@ -171,8 +175,6 @@ function addListeners() {
 
     document.getElementById("inputBox").addEventListener(("input"), function () {
         dup1();}, false);
-
-//    document.getElementById("inputBox").addEventListener((""))
 
 
 }
