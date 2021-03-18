@@ -36,16 +36,16 @@ function loadText(i) {
 
 //responsible for changing language
 function changeLanguage(language) {
-    var xml = loadDoc();
-    var i = 0;
-    var j = 0;
+    let xml = loadDoc();
+    let i = 0;
+    let j = 0;
     if(language === "english") {
         j = j + 4;
     }
 
     for(i; i < 4; i++, j++) {
-        var titleTag = xml.getElementsByTagName("title");
-        var title = titleTag[j].childNodes[0].nodeValue;
+        let titleTag = xml.getElementsByTagName("title");
+        let title = titleTag[j].childNodes[0].nodeValue;
         document.getElementById("option" + (i + 1)).innerHTML = title;
     }
     choose(document.getElementById("selectText").value);
@@ -57,21 +57,28 @@ function dup1() {
     let nextIndex = parseInt(index) + 1;
     let input = document.getElementById("inputBox").value.split("");
     let errors = parseInt(window.sessionStorage.getItem("errors"));
+    let textChar = text[index].innerText;
+    let inputChar = input[input.length - 1];
+    if(document.getElementById("casingBox").checked) {
+        textChar = textChar.toLowerCase();
+        inputChar = inputChar.toLowerCase();
+    }
 
-    if(text[index].innerText === (input[input.length -1])) {
+    if(textChar === inputChar) {
         text[index].classList.add("correct");
     } else {
-        if(text[index].innerText === " ") {
+        let sound = new Audio("../audio/failSound.mp3")
+        sound.play()
+        if(textChar === " ") {
             text[index].classList.add("incorrectSpace");
         } else {
             text[index].classList.add("incorrect");
         }
-
-
         window.sessionStorage.setItem("errors", errors + 1);
     }
+
     text[index].classList.remove("current");
-    if(input[input.length -1] === " ") {
+    if(inputChar === " ") {
         document.getElementById("inputBox").value = "";
     }
 
@@ -85,7 +92,7 @@ function dup1() {
 }
 
 function renderText() {
-    var text = document.getElementById("textContent").innerHTML;
+    let text = document.getElementById("textContent").innerHTML;
     document.getElementById("textContent").innerHTML = "";
     text.split('').forEach(character => {
         const characterSpan = document.createElement('span')
@@ -162,7 +169,7 @@ function speedTyping() {
 function addListeners() {
 
     //adds listeners to language radio
-    var radios = document.querySelectorAll('input[name="language"]');
+    let radios = document.querySelectorAll('input[name="language"]');
     radios.forEach(radio => radio.addEventListener("change", function () {
         changeLanguage(radio.value); }, false));
 

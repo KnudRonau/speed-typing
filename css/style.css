@@ -15,18 +15,35 @@
 
     .heading {
         display: inline-block;
-        margin: 40px 0px 30px 42px;
+        margin: 40px 0px 30px 12px;
     }
 
     h1 {
-        font-family: "Berlin Sans FB", serif;
-        font-size: 65px;
+        font-family: russo;
+        font-size: 60px;
         color: #dda544;
+    }
+
+    #animation {
+        font-size: 60px;
+        color: #275383;
+        font-family: russo, serif;
+        animation: typing 4s infinite;
+
+    }
+
+    @keyframes typing {
+        0% {color: #275383; background-color: #8f8f8f}
+        40% {color: darkolivegreen; background: none}
+        60% {color: darkolivegreen; background: none}
+        100% {color: #275383; background-color: #8f8f8f}
+
+
     }
 
     main {
         font-size: x-large;
-        font-family: Calibri;
+        font-family: roboto;
         text-align: center;
     }
 
@@ -140,8 +157,17 @@
 
     @font-face {
         font-family: "roboto";
-        src: url("fonts/Roboto-regular.ttf");
+        src: url("../font/Roboto-light.ttf");
+        font-style: normal;
+        font-weight: 100;
 
+    }
+
+    @font-face {
+        font-family: "russo";
+        src: url("../font/RussoOne-Regular.ttf");
+        font-style: normal;
+        font-weight: 100;
     }
 
 
@@ -152,7 +178,6 @@
         padding: 0;
         margin: auto;
         font-size: 22px;
-
     }
     dt {
         float: left;
