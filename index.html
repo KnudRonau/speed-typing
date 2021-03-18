@@ -62,12 +62,13 @@
             <p><label>
                 <input type="text" id="inputBox" placeholder="Type here..."/>
             </label></p>
+
             <p>
-                <img src = "img/StartButton.png" height="20" id="startStopBtn"
+                <img src = "img/StartButton.png" height="30" id="startStopBtn"
                      alt = "start/stop image">
             </p>
 
-            <dl id="statisticArea">
+            <dl class="statArea">
                 <div>
                     <dt class="stat">Gross WPM:</dt>
                     <dd class="stat" id="grossWPM">0</dd>
@@ -85,8 +86,12 @@
                     <dd class="stat" id="errors">0</dd>
                 </div>
 
-
             </dl>
+
+            <canvas class="statArea" id="speedStat" width="300" height="100">
+
+            </canvas>
+
 
         </main>
 

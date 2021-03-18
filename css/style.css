@@ -10,16 +10,16 @@
     body {
         max-width: 600px;
         margin: auto;
-        color: #d4dee9;
+        color: #c7dff5;
     }
 
     .heading {
         display: inline-block;
-        margin: 40px 0px 30px 12px;
+        margin: 40px 0 30px 12px;
     }
 
     h1 {
-        font-family: russo;
+        font-family: russo, serif;
         font-size: 60px;
         color: #dda544;
     }
@@ -33,17 +33,17 @@
     }
 
     @keyframes typing {
-        0% {color: #275383; background-color: #8f8f8f}
-        40% {color: darkolivegreen; background: none}
-        60% {color: darkolivegreen; background: none}
-        100% {color: #275383; background-color: #8f8f8f}
+        0% {color: #275383; background-color: #bebebe}
+        25% {color: darkolivegreen; background: none}
+        75% {color: darkolivegreen; background: none}
+        100% {color: #275383; background-color: #bebebe}
 
 
     }
 
     main {
         font-size: x-large;
-        font-family: roboto;
+        font-family: roboto, serif;
         text-align: center;
     }
 
@@ -132,7 +132,7 @@
     }
 
     .current {
-        background-color: #8f8f8f;
+        background-color: #bebebe;
     }
 
     #inputBox {
@@ -141,10 +141,6 @@
         text-align: center;
         background-color: black;
         color: #c7dff5;
-
-    }
-
-    #statisticArea {
 
     }
 
@@ -170,7 +166,9 @@
         font-weight: 100;
     }
 
-
+    .statArea {
+        display: inline-block;
+    }
 
     dl {
         width: 100%;
@@ -181,20 +179,28 @@
     }
     dt {
         float: left;
-        width: 30%;
+        width: 20%;
         /* adjust the width; make sure the total of both is 100% */
         padding: 0;
-        margin: 0% 0% 1% 30%;
+        margin: 0 0 0 10%;
         text-align: left;
         color: #dda544;
     }
     dd {
         float: left;
-        width: 30%;
+        width: 20%;
         /* adjust the width; make sure the total of both is 100% */
         padding: 0;
         margin: 0;
         text-align: left;
+    }
+
+    #speedStat {
+        background-color: black;
+        border-width: 2px;
+        border-color: #dda544;
+        border-style: ridge;
+        border-radius: 8px;
     }
 
     footer {

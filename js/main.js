@@ -56,6 +56,38 @@ function playSound() {
     sound.play();
 }
 
+function drawStat(time, wpm) {
+    let ctx = document.querySelector("canvas").getContext("2d");
+    let xGrid = 120 * time;
+
+    ctx.strokeStyle = "#c7dff5"
+    ctx.lineTo(xGrid, 100 - parseInt(wpm));
+    ctx.stroke();
+    console.log(wpm, time);
+}
+
+function drawCanvas() {
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let yGrid = 25;
+
+    ctx.beginPath();
+
+    while(yGrid<canvas.height) {
+        ctx.moveTo(0, yGrid);
+        ctx.lineTo(canvas.width, yGrid);
+        yGrid += 25;
+    }
+
+    ctx.strokeStyle = "#dda544";
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(0, 100);
+}
+
 function dup1() {
     let text = document.getElementById("textContent").querySelectorAll("span");
     let index = window.sessionStorage.getItem("index");
@@ -126,6 +158,8 @@ function statistics() {
     let grossWPM = (entries / 5) / elapsedTime;
     let netWPM = grossWPM - (errors/elapsedTime);
 
+    drawStat(elapsedTime, grossWPM);
+
     grossWPMElement.innerHTML = Math.round(grossWPM);
     accuracyElement.innerHTML = Math.round(accuracy);
     netWPMElement.innerHTML = Math.round(netWPM);
@@ -151,18 +185,17 @@ function speedTyping() {
         window.sessionStorage.setItem("startTime", startTime);
         window.sessionStorage.setItem("index", 0);
         window.sessionStorage.setItem("errors", 0);
+        drawCanvas();
 
         img.setAttribute("src", "img/StopButton.png");
         inputBox.focus();
 
     }
     else if(img.getAttribute("src") === "img/StopButton.png") {
-//        let d2 = new Date();
-//        let endTime = d2.getTime();
-//        let startTime = window.sessionStorage.getItem("startTime");
+
         let timer = window.sessionStorage.getItem("timer");
         clearInterval(timer);
-//        console.log(endTime - startTime);
+
 
         img.setAttribute("src", "img/StartButton.png");
     }
@@ -192,9 +225,12 @@ function addListeners() {
 
 //runs when the page has been loaded an calls the proper functions
 function start() {
-    choose(0)
-    changeLanguage("swedish")
-    addListeners()
+    choose(0);
+    changeLanguage("swedish");
+    addListeners();
+    drawCanvas();
+
+
 
 
 }
