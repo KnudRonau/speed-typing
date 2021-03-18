@@ -1,22 +1,31 @@
 <!DOCTYPE html>
+
+<!--
+Knud Ronau Larsen
+KNLA2000
+knla2000@student.miun.se
+-->
+
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <title>Speed Typing</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src = "js/main.js"></script>
-
-
     </head>
 
     <body>
+
         <header>
             <p class = "heading">
                 <img src = "img/Typewriter.png" height="65" alt = "Typewriter image">
             </p>
+
             <h1 class = "heading">
                 Speed Typing
             </h1>
+
             <p class = "heading" id="animation">
                 ST
             </p>
@@ -41,15 +50,15 @@
             <p id="selectTextArea">
                 <label id="selectTextLabel" class="selectText">Choose a text
                     <select name = "text" id="selectText" class="selectText">
-                        <option value="0" id="option1"></option>
-                        <option value="1" id="option2"></option>
-                        <option value="2" id="option3"></option>
-                        <option value="3" id="option4"></option>
+                        <option value="0" id="option1">1</option>
+                        <option value="1" id="option2">2</option>
+                        <option value="2" id="option3">3</option>
+                        <option value="3" id="option4">4</option>
                     </select>
                 </label>
             </p>
 
-            <section id="textBox">
+            <div id="textBox">
                 <p id="title">
 
                 </p>
@@ -57,10 +66,10 @@
 
                 </p>
                 <p id="textContent" class="textContent" ></p>
-            </section>
+            </div>
 
             <p><label>
-                <input type="text" id="inputBox" placeholder="Type here..."/>
+                <input type="text" id="inputBox"  placeholder="Type here..."/>
             </label></p>
 
             <p>
@@ -69,23 +78,17 @@
             </p>
 
             <dl class="statArea">
-                <div>
-                    <dt class="stat">Gross WPM:</dt>
-                    <dd class="stat" id="grossWPM">0</dd>
-                </div>
-                <div>
-                    <dt class="stat">Accuracy:</dt>
-                    <dd class="stat" id="accuracy">0</dd>
-                </div>
-                <div>
-                    <dt class="stat">Net WPM:</dt>
-                    <dd class="stat" id="netWPM">0</dd>
-                </div>
-                <div>
-                    <dt class="stat">Errors:</dt>
-                    <dd class="stat" id="errors">0</dd>
-                </div>
+                <dt class="stat">Gross WPM:</dt>
+                <dd class="stat" id="grossWPM">0</dd>
 
+                <dt class="stat">Accuracy:</dt>
+                <dd class="stat" id="accuracy">0</dd>
+
+                <dt class="stat">Net WPM:</dt>
+                <dd class="stat" id="netWPM">0</dd>
+
+                <dt class="stat">Errors:</dt>
+                <dd class="stat" id="errors">0</dd>
             </dl>
 
             <canvas class="statArea" id="speedStat" width="300" height="100">
