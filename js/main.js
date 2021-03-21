@@ -147,9 +147,7 @@ function keyPress() {
         text[nextIndex].classList.add("current");
         variables.index = nextIndex;
     }
-
 }
-
 
 //Turns the current text into <span> elements
 function renderText() {
@@ -243,7 +241,6 @@ function speedTyping() {
 
         img.setAttribute("src", "img/StartButton.png");
     }
-
 }
 
 //adds listeners
@@ -265,8 +262,6 @@ function addListeners() {
     //adds listener to the input box
     document.getElementById("inputBox").addEventListener(("input"), function () {
         keyPress();}, false);
-
-
 }
 
 //runs when the page has been loaded an calls the proper functions
