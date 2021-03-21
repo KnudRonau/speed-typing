@@ -20,7 +20,7 @@ function choose(i) {
     if(document.getElementById("english").checked) {
         i = parseInt(i) + 4;
     }
-    loadText(i)
+    loadText(i);
 }
 
 //loads title, info and text into place
@@ -76,7 +76,7 @@ function drawStat(time, wpm) {
     let ctx = document.querySelector("canvas").getContext("2d");
 
     //draws a continuing line, which progresses 2 pixels pr second
-    ctx.strokeStyle = "#c7dff5"
+    ctx.strokeStyle = "#c7dff5";
     ctx.lineTo(2 * time, 100 - parseInt(wpm));
     ctx.stroke();
 }
@@ -159,10 +159,10 @@ function renderText() {
     //creates an array with each character, creates a <span> element equal to each character in the array, and adds
     //all the <span> elements to the area of text content
     text.split('').forEach(character => {
-        let characterSpan = document.createElement('span')
+        let characterSpan = document.createElement('span');
         characterSpan.innerText = character;
         document.getElementById("textContent").appendChild(characterSpan);
-    })
+    });
 
     //sets the first <span> element to current
     document.getElementById("textContent").querySelector("span").classList.add("current");
